@@ -1,0 +1,28 @@
+baseURL = "https://example.com/"
+languageCode = "de-de"
+title = "Trockenbau Beispiel in Musterstadt"
+disableKinds = ["taxonomy", "term"]
+theme = "shared-landing"
+themesDir = "../themes"
+
+[params]
+  businessName = "Trockenbau Beispiel"
+  profession = "Trockenbau und Innenausbau"
+  location = "Musterstadt und Umgebung"
+  phone = "+49 123 4567890"
+  phoneHref = "+491234567890"
+  email = "angebot@trockenbau-beispiel.de"
+  whatsappHref = ""
+  instagramUrl = "https://www.instagram.com/deinprofil/"
+  logoImage = "/images/logo.svg"
+  logoAlt = "Trockenbau Beispiel"
+  primaryColor = "#315f62"
+  accentColor = "#d7a84f"
+  darkColor = "#202624"
+  lightColor = "#f4f1ea"
+  seoDescription = "Trockenbau Beispiel bietet Trockenbau, Innenausbau, Decken, Waende und Renovierungen in Musterstadt und Umgebung."
+  heroImage = "/images/mock-photo.svg"
+  ogImage = "/images/mock-photo.svg"
+
+[markup.goldmark.renderer]
+  unsafe = true

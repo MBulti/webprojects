@@ -1,0 +1,6 @@
+.git
+.hugo_build.lock
+public
+resources
+.DS_Store
+node_modules

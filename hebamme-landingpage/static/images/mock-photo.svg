@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Mock-Foto einer Hebamme</title>
+  <desc id="desc">Fotoplatzhalter mit einer Hebamme in ruhigem Beratungsraum.</desc>
+  <defs>
+    <linearGradient id="wall" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff8f4"/>
+      <stop offset="1" stop-color="#ead2ca"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#f1c7ad"/>
+      <stop offset="1" stop-color="#d99b7c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#wall)"/>
+  <rect x="0" y="610" width="1200" height="290" fill="#d9a7a0" opacity="0.28"/>
+  <rect x="120" y="105" width="960" height="690" rx="34" fill="#ffffff" opacity="0.38"/>
+  <circle cx="620" cy="250" r="118" fill="url(#skin)"/>
+  <path d="M482 246c40-104 166-149 252-76 43 37 56 96 46 148-72-36-196-35-298-72z" fill="#6d4a44"/>
+  <path d="M395 780c18-210 105-330 228-330s211 120 229 330z" fill="#8f5f5f"/>
+  <path d="M520 470c30 45 177 45 207 0l54 190c-80 44-234 44-314 0z" fill="#fbf6f3"/>
+  <circle cx="835" cy="535" r="70" fill="#f0c8b2"/>
+  <path d="M780 580c38 58 125 56 160 0" fill="none" stroke="#8f5f5f" stroke-width="14" stroke-linecap="round"/>
+  <rect x="170" y="610" width="270" height="26" rx="13" fill="#ffffff" opacity="0.7"/>
+  <rect x="170" y="660" width="210" height="22" rx="11" fill="#ffffff" opacity="0.52"/>
+  <circle cx="190" cy="195" r="54" fill="#d9a7a0" opacity="0.5"/>
+  <circle cx="1000" cy="210" r="84" fill="#8f5f5f" opacity="0.15"/>
+</svg>

@@ -1,0 +1,109 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="hero__inner">
+    <div class="hero__content">
+      <p class="eyebrow">{{ .Params.hero.eyebrow }}</p>
+      <h1>{{ .Params.hero.title }}</h1>
+      <p>{{ .Params.hero.text }}</p>
+      <div class="actions">
+        <a class="button button--primary" href="#kontakt">{{ .Params.hero.primaryCta }}</a>
+        <a class="button button--secondary" href="#leistungen">{{ .Params.hero.secondaryCta }}</a>
+      </div>
+      <dl class="hero__facts">
+        <div>
+          <dt>{{ .Params.hero.regionLabel | default "Region" }}</dt>
+          <dd>{{ .Site.Params.location }}</dd>
+        </div>
+        <div>
+          <dt>{{ .Params.hero.contactLabel | default "Kontakt" }}</dt>
+          <dd>{{ .Site.Params.phone }}</dd>
+        </div>
+      </dl>
+    </div>
+    <div class="hero__media">
+      <div class="hero__image" style="--hero-image: url('{{ .Site.Params.heroImage }}')" role="img" aria-label="{{ .Site.Params.profession }}"></div>
+    </div>
+  </div>
+</section>
+
+<section id="leistungen" class="section">
+  <div class="section__header">
+    <p class="eyebrow">{{ .Params.servicesEyebrow | default "Leistungen" }}</p>
+    <h2>{{ .Params.servicesHeading | default "Leistungen im Ueberblick" }}</h2>
+  </div>
+  <div class="service-list">
+    {{ range .Params.services }}
+      <article class="service-item">
+        <div>
+          <h3>{{ .title }}</h3>
+          <p>{{ .text }}</p>
+        </div>
+        <ul>
+          {{ range .examples }}
+            <li>{{ . }}</li>
+          {{ end }}
+        </ul>
+      </article>
+    {{ end }}
+  </div>
+</section>
+
+<section class="band">
+  <div>
+    <p class="eyebrow">{{ .Params.trustEyebrow | default "Vertrauen" }}</p>
+    <h2>{{ .Params.trustHeading | default "Klar, persoenlich und verlaesslich" }}</h2>
+  </div>
+  <ul class="checklist">
+    {{ range .Params.trust }}
+      <li>{{ . }}</li>
+    {{ end }}
+  </ul>
+</section>
+
+<section class="section section--split">
+  <div>
+    <p class="eyebrow">{{ .Params.aboutEyebrow | default "Profil" }}</p>
+    <h2>{{ .Params.about.title }}</h2>
+  </div>
+  <p class="large-text">{{ .Params.about.text }}</p>
+</section>
+
+<section id="ablauf" class="section">
+  <div class="section__header">
+    <p class="eyebrow">{{ .Params.processEyebrow | default "Ablauf" }}</p>
+    <h2>{{ .Params.processHeading | default "So laeuft die Zusammenarbeit ab" }}</h2>
+  </div>
+  <div class="steps">
+    {{ range $index, $item := .Params.process }}
+      <article class="step">
+        <span>{{ add $index 1 }}</span>
+        <h3>{{ $item.title }}</h3>
+        <p>{{ $item.text }}</p>
+      </article>
+    {{ end }}
+  </div>
+</section>
+
+<section class="section section--split">
+  <div>
+    <p class="eyebrow">{{ .Params.areaEyebrow | default "Region" }}</p>
+    <h2>{{ .Params.area.title }}</h2>
+  </div>
+  <p class="large-text">{{ .Params.area.text }}</p>
+</section>
+
+<section id="kontakt" class="contact">
+  <div>
+    <p class="eyebrow">{{ .Params.contactEyebrow | default "Kontakt" }}</p>
+    <h2>{{ .Params.contact.title }}</h2>
+    <p>{{ .Params.contact.text }}</p>
+  </div>
+  <div class="contact__actions">
+    <a class="button button--primary" href="tel:{{ .Site.Params.phoneHref }}">{{ .Site.Params.phone }}</a>
+    <a class="button button--secondary" href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+    {{ with .Site.Params.whatsappHref }}
+      <a class="button button--secondary" href="{{ . }}">WhatsApp</a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

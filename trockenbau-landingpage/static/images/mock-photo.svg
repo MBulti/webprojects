@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Mock-Foto eines Handwerkers</title>
+  <desc id="desc">Fotoplatzhalter mit Handwerker in einem Innenausbau-Projekt.</desc>
+  <defs>
+    <linearGradient id="room" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f6f3ec"/>
+      <stop offset="1" stop-color="#cfc8b8"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#e2b08d"/>
+      <stop offset="1" stop-color="#bd7c58"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#room)"/>
+  <path d="M120 160h960v540H120z" fill="#ffffff" opacity="0.55"/>
+  <path d="M180 240h840M180 360h840M180 480h840" stroke="#315f62" stroke-width="16" opacity="0.18"/>
+  <circle cx="535" cy="280" r="90" fill="url(#skin)"/>
+  <path d="M445 260c25-96 163-122 210-30 16 31 12 68 5 93-67-43-143-42-215-63z" fill="#202624"/>
+  <path d="M380 785c22-230 96-350 180-350h80c88 0 162 120 184 350z" fill="#315f62"/>
+  <rect x="455" y="445" width="230" height="190" rx="20" fill="#d7a84f"/>
+  <path d="M742 420 930 232" stroke="#d7a84f" stroke-width="36" stroke-linecap="round"/>
+  <rect x="882" y="184" width="118" height="78" rx="14" transform="rotate(-45 941 223)" fill="#315f62"/>
+  <rect x="706" y="388" width="92" height="64" rx="12" transform="rotate(-45 752 420)" fill="#202624"/>
+  <circle cx="1030" cy="650" r="78" fill="#315f62" opacity="0.16"/>
+  <rect x="160" y="640" width="280" height="28" rx="14" fill="#ffffff" opacity="0.62"/>
+</svg>

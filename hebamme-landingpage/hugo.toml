@@ -1,0 +1,28 @@
+baseURL = "https://example.com/"
+languageCode = "de-de"
+title = "Hebamme Anna Beispiel in Musterstadt"
+disableKinds = ["taxonomy", "term"]
+theme = "shared-landing"
+themesDir = "../themes"
+
+[params]
+  businessName = "Hebamme Anna Beispiel"
+  profession = "Hebamme in Musterstadt"
+  location = "Musterstadt und Umgebung"
+  phone = "+49 123 4567890"
+  phoneHref = "+491234567890"
+  email = "kontakt@hebamme-beispiel.de"
+  whatsappHref = ""
+  instagramUrl = "https://www.instagram.com/deinprofil/"
+  logoImage = "/images/logo.svg"
+  logoAlt = "Hebamme Anna Beispiel"
+  primaryColor = "#8f5f5f"
+  accentColor = "#d9a7a0"
+  darkColor = "#2f2927"
+  lightColor = "#fbf6f3"
+  seoDescription = "Hebamme Anna Beispiel begleitet Familien in Musterstadt und Umgebung durch Schwangerschaft, Wochenbett und Stillzeit."
+  heroImage = "/images/mock-photo.svg"
+  ogImage = "/images/mock-photo.svg"
+
+[markup.goldmark.renderer]
+  unsafe = true

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="{{ .Site.LanguageCode | default "de" }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Params.businessName }}{{ end }}</title>
+  <meta name="description" content="{{ .Site.Params.seoDescription }}">
+  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Params.businessName }}{{ end }}">
+  <meta property="og:description" content="{{ .Site.Params.seoDescription }}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="{{ .Site.Params.ogImage }}">
+  <link rel="stylesheet" href="/css/main.css?v={{ now.Unix }}">
+  <style>
+    :root {
+      --color-primary: {{ .Site.Params.primaryColor }};
+      --color-accent: {{ .Site.Params.accentColor }};
+      --color-dark: {{ .Site.Params.darkColor }};
+      --color-light: {{ .Site.Params.lightColor }};
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="{{ .Site.Params.businessName }}">
+      {{ with .Site.Params.logoImage }}
+        <img class="brand__logo" src="{{ . }}" alt="{{ $.Site.Params.logoAlt | default $.Site.Params.businessName }}">
+      {{ else }}
+        <span>{{ .Site.Params.businessName }}</span>
+      {{ end }}
+    </a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="/#leistungen">Leistungen</a>
+      <a href="/#ablauf">Ablauf</a>
+      <a href="/#kontakt">Kontakt</a>
+      {{ with .Site.Params.instagramUrl }}
+        <a class="nav__social" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17.5" cy="6.5" r="1.2"></circle>
+          </svg>
+        </a>
+      {{ end }}
+    </nav>
+  </header>
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  <footer class="site-footer">
+    <p>&copy; {{ now.Year }} {{ .Site.Params.businessName }}</p>
+    <nav aria-label="Rechtliches">
+      <a href="/impressum/">Impressum</a>
+      <a href="/datenschutz/">Datenschutz</a>
+    </nav>
+  </footer>
+</body>
+</html>
