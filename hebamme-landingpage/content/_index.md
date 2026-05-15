@@ -55,10 +55,16 @@ about:
 experienceHeading: "Erfahrung und Schwerpunkte"
 experience:
   - title: "Beleghebamme"
+    image: "/images/bauch.jpg"
+    imageAlt: "Schwangerschaftsbauch"
     text: "Aktuell bin ich tätig als Beleghebamme, in einem tollen Team aus Hebammen und Ärzt*innen im Hebammenanker im Stralsunder Krankenhaus."
   - title: "Ganzheitliche Betreuung"
+    image: "/images/mutterpass.jpg"
+    imageAlt: "Mutterpass für die Betreuung"
     text: "Von der Schwangerschaftsvorsorge bis zur Wochenbettbetreuung, vertrauensvolle und einfühlsame Begleitung in jeder Phase."
   - title: "Erweiterte Therapiemöglichkeiten"
+    image: "/images/taping.jpg"
+    imageAlt: "Kinesio Taping"
     text: "Mit Kinesio Taping und Aromatherapie unterstütze ich deinen Körper sanft bei Bewegungseinschränkungen und Verspannungen, für mehr Wohlbefinden in deiner Schwangerschaft."
 process:
   - title: "Anfrage"

@@ -102,6 +102,9 @@
     <div class="experience-steps">
       {{ range $index, $item := . }}
         <article>
+          {{ with $item.image }}
+            <img class="experience-steps__image" src="{{ . | strings.TrimPrefix "/" | relURL }}" alt="{{ $item.imageAlt | default $item.title }}">
+          {{ end }}
           <span>{{ add $index 1 }}</span>
           <h3>{{ $item.title }}</h3>
           {{ with $item.text }}<p>{{ . }}</p>{{ end }}

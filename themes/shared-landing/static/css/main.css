@@ -393,9 +393,19 @@ h3 {
 }
 
 .experience-steps article {
+  overflow: hidden;
   padding: 24px;
   border-radius: 8px;
   background: var(--color-light);
+}
+
+.experience-steps__image {
+  display: block;
+  width: calc(100% + 48px);
+  max-width: none;
+  height: 190px;
+  margin: -24px -24px 20px;
+  object-fit: cover;
 }
 
 .experience-steps span {

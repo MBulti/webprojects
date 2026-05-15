@@ -30,7 +30,9 @@
     </a>
     <nav class="nav" aria-label="Hauptnavigation">
       <a href="{{ .Site.Home.RelPermalink }}#leistungen">Leistungen</a>
-      <a href="{{ .Site.Home.RelPermalink }}#ablauf">Ablauf</a>
+      {{ if ne .Site.Home.Params.showProcess false }}
+        <a href="{{ .Site.Home.RelPermalink }}#ablauf">Ablauf</a>
+      {{ end }}
       <a href="{{ .Site.Home.RelPermalink }}#kontakt">Kontakt</a>
       {{ with .Site.Params.instagramUrl }}
         <a class="nav__social" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
