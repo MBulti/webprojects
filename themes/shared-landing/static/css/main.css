@@ -252,9 +252,10 @@ h3 {
 }
 
 .service-item__main {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  align-items: start;
+  gap: 20px;
 }
 
 .service-item__copy {
@@ -269,13 +270,13 @@ h3 {
 .service-item__icon {
   display: inline-grid;
   flex: 0 0 auto;
-  width: 48px;
-  height: 48px;
+  width: 104px;
+  height: 104px;
   place-items: center;
   border-radius: 50%;
   background: color-mix(in srgb, var(--color-accent) 26%, #fff);
   color: var(--color-dark);
-  font-size: 1.25rem;
+  font-size: 2.1rem;
   line-height: 1;
 }
 
@@ -349,12 +350,14 @@ h3 {
   align-items: start;
 }
 
-.about-intro {
-  display: grid;
-  gap: 24px;
+.section--about-media .about-heading {
+  grid-column: 1;
+  grid-row: 1;
 }
 
 .about-media {
+  grid-column: 1;
+  grid-row: 2;
   margin: 0;
 }
 
@@ -370,6 +373,12 @@ h3 {
 .about-body {
   display: grid;
   gap: 24px;
+}
+
+.section--about-media .about-body {
+  align-self: start;
+  grid-column: 2;
+  grid-row: 2;
 }
 
 .large-text {
@@ -498,7 +507,7 @@ h3 {
 }
 
 .site--midwife-premium .brand__logo {
-  height: clamp(42px, 4vw, 52px);
+  height: clamp(56px, 5vw, 72px);
 }
 
 .site--midwife-premium .hero {
@@ -727,8 +736,16 @@ h3 {
   }
 
   .service-item,
+  .experience-steps,
   .steps {
     grid-template-columns: 1fr;
+  }
+
+  .section--about-media .about-heading,
+  .section--about-media .about-body,
+  .about-media {
+    grid-column: auto;
+    grid-row: auto;
   }
 }
 
@@ -819,7 +836,7 @@ h3 {
   }
 
   .brand__logo {
-    height: 34px;
+    height: 46px;
   }
 
   .nav {

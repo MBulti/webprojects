@@ -44,6 +44,7 @@ servicesHeading: "Begleitung, die sich nach dir richtet"
 showServiceExamples: false
 showTrust: false
 showProcess: false
+showArea: false
 trustHeading: "Vertrauen entsteht durch Ruhe, Klarheit und Zeit"
 processHeading: "So beginnt unsere Betreuung"
 about:
@@ -70,6 +71,6 @@ area:
   title: "Einsatzgebiet"
   text: "Ich betreue Familien in Musterstadt sowie in umliegenden Orten nach individueller Absprache."
 contact:
-  title: "Betreuung frühzeitig anfragen"
-  text: "Schreib mir eine E-Mail oder ruf kurz an. Bitte nenne deinen errechneten Geburtstermin, deinen Wohnort und welche Begleitung du suchst."
+  title: "Kontaktaufnahme"
+  text: "Du möchtest mich kennenlernen? Bitte vereinbare einen Termin. Ich bin Mo-Fr von 08:00 - 16:00 Uhr erreichbar."
 ---

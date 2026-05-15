@@ -79,17 +79,15 @@
 {{ end }}
 
 <section class="section section--split{{ with .Params.about.image }} section--about-media{{ end }}">
-  <div class="about-intro">
-    <div>
-      <p class="eyebrow">{{ .Params.aboutEyebrow | default "Profil" }}</p>
-      <h2>{{ .Params.about.title }}</h2>
-    </div>
-    {{ with .Params.about.image }}
-      <figure class="about-media">
-        <img src="{{ . | strings.TrimPrefix "/" | relURL }}" alt="{{ $.Params.about.imageAlt | default $.Params.about.title }}">
-      </figure>
-    {{ end }}
+  <div class="about-heading">
+    <p class="eyebrow">{{ .Params.aboutEyebrow | default "Profil" }}</p>
+    <h2>{{ .Params.about.title }}</h2>
   </div>
+  {{ with .Params.about.image }}
+    <figure class="about-media">
+      <img src="{{ . | strings.TrimPrefix "/" | relURL }}" alt="{{ $.Params.about.imageAlt | default $.Params.about.title }}">
+    </figure>
+  {{ end }}
   <div class="about-body">
     <p class="large-text">{{ .Params.about.text }}</p>
   </div>
@@ -131,13 +129,15 @@
   </section>
 {{ end }}
 
-<section class="section section--split">
-  <div>
-    <p class="eyebrow">{{ .Params.areaEyebrow | default "Region" }}</p>
-    <h2>{{ .Params.area.title }}</h2>
-  </div>
-  <p class="large-text">{{ .Params.area.text }}</p>
-</section>
+{{ if ne .Params.showArea false }}
+  <section class="section section--split">
+    <div>
+      <p class="eyebrow">{{ .Params.areaEyebrow | default "Region" }}</p>
+      <h2>{{ .Params.area.title }}</h2>
+    </div>
+    <p class="large-text">{{ .Params.area.text }}</p>
+  </section>
+{{ end }}
 
 <section id="kontakt" class="contact">
   <div>
