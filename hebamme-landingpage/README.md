@@ -43,7 +43,7 @@ logoImage = "/images/logo.svg"
 logoAlt = "Hebamme Anna Beispiel"
 ```
 
-Das Hero-Bild wird aktuell als `/images/mock-photo.svg` ausgeliefert. Ersetze für die echte Website `static/images/mock-photo.svg` durch ein passendes Foto oder lege z. B. `static/images/hero.jpg` ab und passe `heroImage` und `ogImage` in `hugo.toml` an.
+Das Hero-Bild wird aktuell als `/images/portrait.jpg` ausgeliefert. Ersetze für die echte Website `static/images/portrait.jpg` durch ein passendes Foto oder lege z. B. `static/images/hero.jpg` ab und passe `heroImage` und `ogImage` in `hugo.toml` an.
 
 ## Kontaktangaben
 

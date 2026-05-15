@@ -251,8 +251,44 @@ h3 {
   border-bottom: 1px solid color-mix(in srgb, var(--color-dark) 12%, transparent);
 }
 
+.service-item__main {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.service-item__copy {
+  display: grid;
+  gap: 8px;
+}
+
 .service-item h3 {
   font-size: clamp(1.35rem, 2vw, 1.8rem);
+}
+
+.service-item__icon {
+  display: inline-grid;
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-accent) 26%, #fff);
+  color: var(--color-dark);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.service-item__icon--image {
+  overflow: hidden;
+  background: transparent;
+}
+
+.service-item__icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .service-item p {
@@ -308,9 +344,71 @@ h3 {
   gap: 32px;
 }
 
+.section--about-media {
+  grid-template-columns: minmax(240px, 0.8fr) minmax(280px, 1.2fr);
+  align-items: start;
+}
+
+.about-intro {
+  display: grid;
+  gap: 24px;
+}
+
+.about-media {
+  margin: 0;
+}
+
+.about-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 20px 55px rgba(45, 37, 34, 0.12);
+}
+
+.about-body {
+  display: grid;
+  gap: 24px;
+}
+
 .large-text {
   margin: 0;
   font-size: clamp(1.15rem, 2vw, 1.45rem);
+}
+
+.experience-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.experience-steps article {
+  padding: 24px;
+  border-radius: 8px;
+  background: var(--color-light);
+}
+
+.experience-steps span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  color: #fff;
+  background: var(--color-primary);
+  font-weight: 800;
+}
+
+.experience-steps h3 {
+  margin: 0 0 8px;
+  font-size: 1.12rem;
+}
+
+.experience-steps p {
+  margin: 0;
 }
 
 .steps {
@@ -440,20 +538,23 @@ h3 {
   box-shadow: 0 34px 90px rgba(147, 104, 99, 0.24);
 }
 
-.site--midwife-premium .hero__media::after {
-  content: "Begleitung mit Ruhe und Zeit";
+.hero__badge {
   position: absolute;
   right: clamp(10px, 3vw, 34px);
   bottom: clamp(12px, 3vw, 34px);
+  margin: 0;
   max-width: 220px;
   padding: 14px 16px;
+  color: var(--color-dark);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.site--midwife-premium .hero__badge {
   border: 1px solid rgba(147, 104, 99, 0.15);
   border-radius: 18px;
   background: rgba(255, 250, 247, 0.9);
   box-shadow: 0 16px 50px rgba(45, 37, 34, 0.12);
-  color: var(--color-dark);
-  font-size: 0.95rem;
-  font-weight: 800;
 }
 
 .site--midwife-premium .hero__facts div,
@@ -559,19 +660,12 @@ h3 {
   box-shadow: 0 34px 90px rgba(31, 37, 35, 0.22);
 }
 
-.site--trade-premium .hero__media::after {
-  content: "Aufmaß, Angebot, Ausführung";
-  position: absolute;
-  right: clamp(10px, 3vw, 34px);
-  bottom: clamp(12px, 3vw, 34px);
+.site--trade-premium .hero__badge {
   max-width: 240px;
-  padding: 14px 16px;
   border: 1px solid rgba(39, 75, 77, 0.16);
   border-radius: 16px;
   background: rgba(248, 245, 239, 0.92);
   box-shadow: 0 16px 50px rgba(31, 37, 35, 0.13);
-  color: var(--color-dark);
-  font-size: 0.95rem;
   font-weight: 850;
 }
 
@@ -809,11 +903,7 @@ h3 {
     min-height: 340px;
   }
 
-  .site--midwife-premium .hero__media::after {
-    display: none;
-  }
-
-  .site--trade-premium .hero__media::after {
+  .hero__badge {
     display: none;
   }
 }

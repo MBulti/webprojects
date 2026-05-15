@@ -1,29 +1,29 @@
 baseURL = "https://example.com/"
 languageCode = "de-de"
-title = "Hebamme Anna Beispiel in Musterstadt"
+title = "Hebamme Lotti Herud in Stralsund und Umgebung"
 disableKinds = ["taxonomy", "term"]
 theme = "shared-landing"
 themesDir = "../themes"
 
 [params]
   siteVariant = "midwife-premium"
-  businessName = "Hebamme Anna Beispiel"
-  profession = "Hebamme in Musterstadt"
-  location = "Musterstadt und Umgebung"
+  businessName = "Hebamme Lotti Herud"
+  profession = "Hebamme in Stralsund und Rügen"
+  location = "Stralsund und Rügen"
   phone = "+49 123 4567890"
   phoneHref = "+491234567890"
   email = "kontakt@hebamme-beispiel.de"
   whatsappHref = ""
-  instagramUrl = "https://www.instagram.com/deinprofil/"
-  logoImage = "/images/logo.svg"
-  logoAlt = "Hebamme Anna Beispiel"
+  instagramUrl = "https://www.instagram.com/hebammelotti"
+  logoImage = "/images/logo.jpg"
+  logoAlt = "Hebamme Lotti Herud"
   primaryColor = "#936863"
   accentColor = "#e7b8aa"
   darkColor = "#2d2522"
   lightColor = "#fff7f3"
   seoDescription = "Hebamme Anna Beispiel begleitet Familien in Musterstadt und Umgebung persönlich durch Schwangerschaft, Wochenbett und Stillzeit."
-  heroImage = "/images/mock-photo.svg"
-  ogImage = "/images/mock-photo.svg"
+  heroImage = "/images/portrait.jpg"
+  ogImage = "/images/portrait.jpg"
 
 [markup.goldmark.renderer]
   unsafe = true

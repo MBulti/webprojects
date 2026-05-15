@@ -22,6 +22,9 @@
     </div>
     <div class="hero__media">
       <div class="hero__image" style="--hero-image: url('{{ .Site.Params.heroImage | strings.TrimPrefix "/" | relURL }}')" role="img" aria-label="{{ .Site.Params.profession }}"></div>
+      {{ with .Params.hero.mediaBadge }}
+        <p class="hero__badge">{{ . }}</p>
+      {{ end }}
     </div>
   </div>
 </section>
@@ -34,55 +37,99 @@
   <div class="service-list">
     {{ range .Params.services }}
       <article class="service-item">
-        <div>
-          <h3>{{ .title }}</h3>
-          <p>{{ .text }}</p>
-        </div>
-        <ul>
-          {{ range .examples }}
-            <li>{{ . }}</li>
+        <div class="service-item__main">
+          {{ with .iconImage }}
+            <span class="service-item__icon service-item__icon--image" aria-hidden="true">
+              <img src="{{ . | strings.TrimPrefix "/" | relURL }}" alt="">
+            </span>
+          {{ else }}
+            {{ with .icon }}
+              <span class="service-item__icon" aria-hidden="true">{{ . }}</span>
+            {{ end }}
           {{ end }}
-        </ul>
+          <div class="service-item__copy">
+            <h3>{{ .title }}</h3>
+            <p>{{ .text }}</p>
+          </div>
+        </div>
+        {{ if ne $.Params.showServiceExamples false }}
+          <ul>
+            {{ range .examples }}
+              <li>{{ . }}</li>
+            {{ end }}
+          </ul>
+        {{ end }}
       </article>
     {{ end }}
   </div>
 </section>
 
-<section class="band">
-  <div>
-    <p class="eyebrow">{{ .Params.trustEyebrow | default "Vertrauen" }}</p>
-    <h2>{{ .Params.trustHeading | default "Klar, persönlich und verlässlich" }}</h2>
-  </div>
-  <ul class="checklist">
-    {{ range .Params.trust }}
-      <li>{{ . }}</li>
-    {{ end }}
-  </ul>
-</section>
+{{ if ne .Params.showTrust false }}
+  <section class="band">
+    <div>
+      <p class="eyebrow">{{ .Params.trustEyebrow | default "Vertrauen" }}</p>
+      <h2>{{ .Params.trustHeading | default "Klar, persönlich und verlässlich" }}</h2>
+    </div>
+    <ul class="checklist">
+      {{ range .Params.trust }}
+        <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+  </section>
+{{ end }}
 
-<section class="section section--split">
-  <div>
-    <p class="eyebrow">{{ .Params.aboutEyebrow | default "Profil" }}</p>
-    <h2>{{ .Params.about.title }}</h2>
-  </div>
-  <p class="large-text">{{ .Params.about.text }}</p>
-</section>
-
-<section id="ablauf" class="section">
-  <div class="section__header">
-    <p class="eyebrow">{{ .Params.processEyebrow | default "Ablauf" }}</p>
-    <h2>{{ .Params.processHeading | default "So läuft die Zusammenarbeit ab" }}</h2>
-  </div>
-  <div class="steps">
-    {{ range $index, $item := .Params.process }}
-      <article class="step">
-        <span>{{ add $index 1 }}</span>
-        <h3>{{ $item.title }}</h3>
-        <p>{{ $item.text }}</p>
-      </article>
+<section class="section section--split{{ with .Params.about.image }} section--about-media{{ end }}">
+  <div class="about-intro">
+    <div>
+      <p class="eyebrow">{{ .Params.aboutEyebrow | default "Profil" }}</p>
+      <h2>{{ .Params.about.title }}</h2>
+    </div>
+    {{ with .Params.about.image }}
+      <figure class="about-media">
+        <img src="{{ . | strings.TrimPrefix "/" | relURL }}" alt="{{ $.Params.about.imageAlt | default $.Params.about.title }}">
+      </figure>
     {{ end }}
   </div>
+  <div class="about-body">
+    <p class="large-text">{{ .Params.about.text }}</p>
+  </div>
 </section>
+
+{{ with .Params.experience }}
+  <section class="section">
+    <div class="section__header">
+      <p class="eyebrow">{{ $.Params.experienceEyebrow | default "Erfahrung" }}</p>
+      <h2>{{ $.Params.experienceHeading | default "Erfahrung und Schwerpunkte" }}</h2>
+    </div>
+    <div class="experience-steps">
+      {{ range $index, $item := . }}
+        <article>
+          <span>{{ add $index 1 }}</span>
+          <h3>{{ $item.title }}</h3>
+          {{ with $item.text }}<p>{{ . }}</p>{{ end }}
+        </article>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}
+
+{{ if ne .Params.showProcess false }}
+  <section id="ablauf" class="section">
+    <div class="section__header">
+      <p class="eyebrow">{{ .Params.processEyebrow | default "Ablauf" }}</p>
+      <h2>{{ .Params.processHeading | default "So läuft die Zusammenarbeit ab" }}</h2>
+    </div>
+    <div class="steps">
+      {{ range $index, $item := .Params.process }}
+        <article class="step">
+          <span>{{ add $index 1 }}</span>
+          <h3>{{ $item.title }}</h3>
+          <p>{{ $item.text }}</p>
+        </article>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}
 
 <section class="section section--split">
   <div>
