@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 70" role="img" aria-labelledby="title">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 78" role="img" aria-labelledby="title">
   <title id="title">Hebamme Anna Beispiel</title>
-  <rect width="260" height="70" rx="12" fill="#fbf6f3"/>
-  <circle cx="35" cy="35" r="18" fill="#d9a7a0"/>
-  <path d="M26 38c6-12 22-12 28 0" fill="none" stroke="#8f5f5f" stroke-width="5" stroke-linecap="round"/>
-  <text x="68" y="31" fill="#2f2927" font-family="Arial, sans-serif" font-size="18" font-weight="700">Hebamme</text>
-  <text x="68" y="52" fill="#8f5f5f" font-family="Arial, sans-serif" font-size="18" font-weight="700">Anna Beispiel</text>
+  <circle cx="34" cy="39" r="22" fill="#e7b8aa"/>
+  <path d="M21 43c7-15 27-15 34 0" fill="none" stroke="#936863" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M26 34c7-8 20-8 28 0" fill="none" stroke="#fff7f3" stroke-width="4.5" stroke-linecap="round"/>
+  <text x="72" y="34" fill="#2d2522" font-family="Arial, sans-serif" font-size="19" font-weight="700">Hebamme</text>
+  <text x="72" y="58" fill="#936863" font-family="Arial, sans-serif" font-size="22" font-weight="800">Anna Beispiel</text>
 </svg>

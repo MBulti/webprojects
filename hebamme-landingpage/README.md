@@ -1,11 +1,11 @@
 # Hebamme Landingpage
 
-Statische Hugo-Landingpage fuer eine Hebamme. Die Seite benoetigt kein Backend, keine Datenbank und kein Kontaktformular.
+Statische Hugo-Landingpage für eine Hebamme. Die Seite benötigt kein Backend, keine Datenbank und kein Kontaktformular.
 
 ## Voraussetzungen
 
 - Hugo Extended installieren: <https://gohugo.io/installation/>
-- Dieses Projekt im Terminal oeffnen:
+- Dieses Projekt im Terminal öffnen:
 
 ```bash
 cd hebamme-landingpage
@@ -17,9 +17,9 @@ cd hebamme-landingpage
 hugo server
 ```
 
-Danach die angezeigte lokale URL im Browser oeffnen, meistens `http://localhost:1313/`.
+Danach die angezeigte lokale URL im Browser öffnen, meistens `http://localhost:1313/`.
 
-## Inhalte aendern
+## Inhalte ändern
 
 - Haupttexte der Landingpage: `content/_index.md`
 - Impressum: `content/impressum.md`
@@ -43,7 +43,7 @@ logoImage = "/images/logo.svg"
 logoAlt = "Hebamme Anna Beispiel"
 ```
 
-Das Hero-Bild wird aktuell als `/images/mock-photo.svg` ausgeliefert. Ersetze fuer die echte Website `static/images/mock-photo.svg` durch ein passendes Foto oder lege z. B. `static/images/hero.jpg` ab und passe `heroImage` und `ogImage` in `hugo.toml` an.
+Das Hero-Bild wird aktuell als `/images/mock-photo.svg` ausgeliefert. Ersetze für die echte Website `static/images/mock-photo.svg` durch ein passendes Foto oder lege z. B. `static/images/hero.jpg` ab und passe `heroImage` und `ogImage` in `hugo.toml` an.
 
 ## Kontaktangaben
 
@@ -61,7 +61,7 @@ Wenn WhatsApp genutzt werden soll, kann `whatsappHref` gesetzt werden, zum Beisp
 whatsappHref = "https://wa.me/491234567890"
 ```
 
-## Build fuer IONOS
+## Build für IONOS
 
 ```bash
 hugo --minify
@@ -69,16 +69,27 @@ hugo --minify
 
 Der fertige Website-Build liegt danach im Ordner `public/`.
 
+## Veröffentlichung über GitHub Pages
+
+Dieses Repository enthält einen GitHub-Actions-Workflow unter `.github/workflows/github-pages.yml`.
+Nach einem Push auf `main` wird diese Landingpage automatisch nach GitHub Pages gebaut:
+
+```text
+https://mbulti.github.io/webprojects/
+```
+
+In GitHub muss unter `Settings > Pages > Build and deployment` als Source `GitHub Actions` ausgewählt sein.
+
 ## Upload zu IONOS
 
 Nur den Inhalt von `public/` hochladen, nicht den ganzen Projektordner.
 
-Moegliche Wege:
+Mögliche Wege:
 
 - SFTP-Zugang von IONOS verwenden.
 - IONOS-Dateimanager verwenden.
 
-Nach dem Upload im IONOS-Konto SSL fuer die Domain aktivieren.
+Nach dem Upload im IONOS-Konto SSL für die Domain aktivieren.
 
 ## Docker
 
@@ -107,17 +118,25 @@ docker compose up --build
 
 Der Container baut die Website mit Hugo, kopiert das gemeinsame Theme aus `../themes/shared-landing/` und serviert die fertigen statischen Dateien mit Nginx.
 
-## Veroeffentlichung pruefen
+Beide Landingpages gemeinsam starten:
 
-- Startseite oeffnet korrekt.
+```bash
+cd ..
+docker compose -f compose.yml up --build
+```
+
+## Veröffentlichung prüfen
+
+- Startseite öffnet korrekt.
 - Impressum ist unter `/impressum/` erreichbar.
 - Datenschutz ist unter `/datenschutz/` erreichbar.
 - Telefonlink funktioniert auf dem Smartphone.
-- E-Mail-Link oeffnet das Mailprogramm.
+- E-Mail-Link öffnet das Mailprogramm.
 - Mobile Ansicht wirkt sauber und lesbar.
 
 ## Hinweise
 
 - `public/` nicht manuell bearbeiten. Der Ordner wird bei jedem Build neu erzeugt.
-- Rechtstexte sind Platzhalter und muessen vor der Veroeffentlichung geprueft werden.
-- Keine unnoetigen Tracking- oder Drittanbieter-Skripte einbauen, wenn sie nicht wirklich gebraucht werden.
+- Bei GitHub Pages wird `baseURL` im Workflow gesetzt, nicht in `hugo.toml`.
+- Rechtstexte sind Platzhalter und müssen vor der Veröffentlichung geprüft werden.
+- Keine unnötigen Tracking- oder Drittanbieter-Skripte einbauen, wenn sie nicht wirklich gebraucht werden.

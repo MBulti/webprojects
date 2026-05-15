@@ -383,6 +383,248 @@ h3 {
   margin-top: 28px;
 }
 
+.site--midwife-premium {
+  background:
+    radial-gradient(circle at 8% 12%, rgba(231, 184, 170, 0.28), transparent 30%),
+    radial-gradient(circle at 92% 8%, rgba(147, 104, 99, 0.12), transparent 28%),
+    #fffaf7;
+}
+
+.site--midwife-premium .site-header {
+  margin: 14px clamp(14px, 3vw, 32px) 0;
+  padding: 14px clamp(16px, 3vw, 28px);
+  border: 1px solid rgba(147, 104, 99, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 250, 247, 0.86);
+  box-shadow: 0 18px 50px rgba(45, 37, 34, 0.08);
+}
+
+.site--midwife-premium .brand__logo {
+  height: clamp(42px, 4vw, 52px);
+}
+
+.site--midwife-premium .hero {
+  margin-top: -76px;
+  padding-top: clamp(110px, 14vw, 168px);
+  background:
+    linear-gradient(135deg, rgba(255, 247, 243, 0.96), rgba(255, 255, 255, 0.72)),
+    radial-gradient(circle at 78% 38%, rgba(231, 184, 170, 0.46), transparent 34%),
+    var(--color-light);
+}
+
+.site--midwife-premium .hero__inner {
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+  gap: clamp(32px, 6vw, 96px);
+}
+
+.site--midwife-premium .hero__content h1 {
+  max-width: 740px;
+  font-size: clamp(3.1rem, 6.2vw, 6.9rem);
+  letter-spacing: 0;
+}
+
+.site--midwife-premium .hero__content p {
+  max-width: 620px;
+  color: color-mix(in srgb, var(--color-dark) 82%, #fff);
+}
+
+.site--midwife-premium .hero__media {
+  min-height: min(70vh, 680px);
+}
+
+.site--midwife-premium .hero__image {
+  border-radius: 38px 38px 150px 38px;
+  background:
+    linear-gradient(rgba(45, 37, 34, 0.04), rgba(45, 37, 34, 0.04)),
+    var(--hero-image) center / cover;
+  box-shadow: 0 34px 90px rgba(147, 104, 99, 0.24);
+}
+
+.site--midwife-premium .hero__media::after {
+  content: "Begleitung mit Ruhe und Zeit";
+  position: absolute;
+  right: clamp(10px, 3vw, 34px);
+  bottom: clamp(12px, 3vw, 34px);
+  max-width: 220px;
+  padding: 14px 16px;
+  border: 1px solid rgba(147, 104, 99, 0.15);
+  border-radius: 18px;
+  background: rgba(255, 250, 247, 0.9);
+  box-shadow: 0 16px 50px rgba(45, 37, 34, 0.12);
+  color: var(--color-dark);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.site--midwife-premium .hero__facts div,
+.site--midwife-premium .service-list,
+.site--midwife-premium .service-item {
+  border-color: rgba(147, 104, 99, 0.16);
+}
+
+.site--midwife-premium .section {
+  background: #fffaf7;
+}
+
+.site--midwife-premium .section__header {
+  max-width: 860px;
+}
+
+.site--midwife-premium .service-list {
+  gap: 14px;
+  border-top: 0;
+}
+
+.site--midwife-premium .service-item {
+  padding: clamp(24px, 4vw, 38px);
+  border: 1px solid rgba(147, 104, 99, 0.13);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 18px 55px rgba(45, 37, 34, 0.06);
+}
+
+.site--midwife-premium .band {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(231, 184, 170, 0.28), transparent 28%),
+    #f9eee9;
+}
+
+.site--midwife-premium .checklist li {
+  border-left: 0;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.site--midwife-premium .contact {
+  border-radius: 34px 34px 0 0;
+  background:
+    radial-gradient(circle at 82% 24%, rgba(231, 184, 170, 0.22), transparent 32%),
+    var(--color-dark);
+}
+
+.site--trade-premium {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(217, 155, 54, 0.16), transparent 28%),
+    radial-gradient(circle at 90% 10%, rgba(39, 75, 77, 0.12), transparent 30%),
+    #f8f5ef;
+}
+
+.site--trade-premium .site-header {
+  margin: 14px clamp(14px, 3vw, 32px) 0;
+  padding: 14px clamp(16px, 3vw, 28px);
+  border: 1px solid rgba(39, 75, 77, 0.14);
+  border-radius: 999px;
+  background: rgba(248, 245, 239, 0.9);
+  box-shadow: 0 18px 50px rgba(31, 37, 35, 0.08);
+}
+
+.site--trade-premium .brand__logo {
+  height: clamp(42px, 4vw, 52px);
+}
+
+.site--trade-premium .hero {
+  margin-top: -76px;
+  padding-top: clamp(110px, 14vw, 168px);
+  background:
+    linear-gradient(135deg, rgba(245, 241, 232, 0.96), rgba(255, 255, 255, 0.78)),
+    radial-gradient(circle at 82% 42%, rgba(217, 155, 54, 0.22), transparent 36%),
+    var(--color-light);
+}
+
+.site--trade-premium .hero__inner {
+  grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr);
+  gap: clamp(32px, 6vw, 92px);
+}
+
+.site--trade-premium .hero__content h1 {
+  max-width: 760px;
+  font-size: clamp(3rem, 5.8vw, 6.4rem);
+  letter-spacing: 0;
+}
+
+.site--trade-premium .hero__content p {
+  max-width: 620px;
+  color: color-mix(in srgb, var(--color-dark) 84%, #fff);
+}
+
+.site--trade-premium .hero__media {
+  min-height: min(70vh, 680px);
+}
+
+.site--trade-premium .hero__image {
+  border-radius: 28px 28px 28px 120px;
+  background:
+    linear-gradient(rgba(31, 37, 35, 0.1), rgba(31, 37, 35, 0.1)),
+    var(--hero-image) center / cover;
+  box-shadow: 0 34px 90px rgba(31, 37, 35, 0.22);
+}
+
+.site--trade-premium .hero__media::after {
+  content: "Aufmaß, Angebot, Ausführung";
+  position: absolute;
+  right: clamp(10px, 3vw, 34px);
+  bottom: clamp(12px, 3vw, 34px);
+  max-width: 240px;
+  padding: 14px 16px;
+  border: 1px solid rgba(39, 75, 77, 0.16);
+  border-radius: 16px;
+  background: rgba(248, 245, 239, 0.92);
+  box-shadow: 0 16px 50px rgba(31, 37, 35, 0.13);
+  color: var(--color-dark);
+  font-size: 0.95rem;
+  font-weight: 850;
+}
+
+.site--trade-premium .hero__media::before {
+  background: rgba(39, 75, 77, 0.2);
+}
+
+.site--trade-premium .hero__facts div,
+.site--trade-premium .service-list,
+.site--trade-premium .service-item {
+  border-color: rgba(39, 75, 77, 0.16);
+}
+
+.site--trade-premium .section {
+  background: #f8f5ef;
+}
+
+.site--trade-premium .section__header {
+  max-width: 860px;
+}
+
+.site--trade-premium .service-list {
+  gap: 14px;
+  border-top: 0;
+}
+
+.site--trade-premium .service-item {
+  padding: clamp(24px, 4vw, 38px);
+  border: 1px solid rgba(39, 75, 77, 0.13);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: 0 18px 55px rgba(31, 37, 35, 0.07);
+}
+
+.site--trade-premium .band {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(217, 155, 54, 0.2), transparent 28%),
+    #ece6d9;
+}
+
+.site--trade-premium .checklist li {
+  border-left: 0;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.site--trade-premium .contact {
+  border-radius: 30px 30px 0 0;
+  background:
+    radial-gradient(circle at 82% 24%, rgba(217, 155, 54, 0.18), transparent 32%),
+    var(--color-dark);
+}
+
 @media (max-width: 900px) {
   .band,
   .section--split,
@@ -397,6 +639,56 @@ h3 {
 }
 
 @media (max-width: 760px) {
+  .site--midwife-premium .site-header {
+    margin: 0;
+    border-inline: 0;
+    border-radius: 0;
+  }
+
+  .site--trade-premium .site-header {
+    margin: 0;
+    border-inline: 0;
+    border-radius: 0;
+  }
+
+  .site--midwife-premium .hero {
+    margin-top: 0;
+    padding-top: 18px;
+  }
+
+  .site--trade-premium .hero {
+    margin-top: 0;
+    padding-top: 18px;
+  }
+
+  .site--midwife-premium .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .site--trade-premium .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .site--midwife-premium .hero__content {
+    max-width: 620px;
+  }
+
+  .site--trade-premium .hero__content {
+    max-width: 680px;
+  }
+
+  .site--midwife-premium .hero__content h1 {
+    max-width: 10ch;
+    font-size: clamp(2.45rem, 10vw, 3.75rem);
+  }
+
+  .site--trade-premium .hero__content h1 {
+    max-width: 12ch;
+    font-size: clamp(2.45rem, 10vw, 3.75rem);
+  }
+
   .hero {
     min-height: auto;
   }
@@ -412,6 +704,14 @@ h3 {
 
   .hero__image {
     border-radius: 42% 58% 48% 52% / 54% 40% 60% 46%;
+  }
+
+  .site--midwife-premium .hero__image {
+    border-radius: 30px 30px 92px 30px;
+  }
+
+  .site--trade-premium .hero__image {
+    border-radius: 24px 24px 24px 78px;
   }
 }
 
@@ -453,9 +753,19 @@ h3 {
   }
 
   .hero__content h1 {
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
     font-size: clamp(1.95rem, 9.5vw, 2.35rem);
     line-height: 1.02;
+  }
+
+  .site--midwife-premium .hero__content h1 {
+    max-width: 9.5ch;
+    font-size: clamp(2.35rem, 13vw, 3.25rem);
+  }
+
+  .site--trade-premium .hero__content h1 {
+    max-width: 11ch;
+    font-size: clamp(2.3rem, 12vw, 3.15rem);
   }
 
   .hero__content p {
@@ -489,5 +799,21 @@ h3 {
 
   .hero__media {
     min-height: 300px;
+  }
+
+  .site--midwife-premium .hero__media {
+    min-height: 360px;
+  }
+
+  .site--trade-premium .hero__media {
+    min-height: 340px;
+  }
+
+  .site--midwife-premium .hero__media::after {
+    display: none;
+  }
+
+  .site--trade-premium .hero__media::after {
+    display: none;
   }
 }

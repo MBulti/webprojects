@@ -1,10 +1,10 @@
 # Shared Landing Theme
 
-Gemeinsames Hugo-Theme fuer die Landingpages.
+Gemeinsames Hugo-Theme für die Landingpages.
 
-Dieses Theme enthaelt:
+Dieses Theme enthält:
 
-- Layouts fuer Startseite, Impressum und Datenschutz.
+- Layouts für Startseite, Impressum und Datenschutz.
 - Gemeinsames CSS.
 - Gemeinsame Navigation, Hero, Leistungsbereich, Ablauf, Kontakt und Footer.
 

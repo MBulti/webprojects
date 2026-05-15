@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
   <title id="title">Ruhige Hebammenbegleitung</title>
-  <desc id="desc">Abstrakte warme Illustration fuer eine Hebammen-Landingpage.</desc>
+  <desc id="desc">Abstrakte warme Illustration für eine Hebammen-Landingpage.</desc>
   <defs>
     <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
       <stop offset="0" stop-color="#fbf6f3"/>

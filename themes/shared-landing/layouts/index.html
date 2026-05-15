@@ -21,7 +21,7 @@
       </dl>
     </div>
     <div class="hero__media">
-      <div class="hero__image" style="--hero-image: url('{{ .Site.Params.heroImage }}')" role="img" aria-label="{{ .Site.Params.profession }}"></div>
+      <div class="hero__image" style="--hero-image: url('{{ .Site.Params.heroImage | strings.TrimPrefix "/" | relURL }}')" role="img" aria-label="{{ .Site.Params.profession }}"></div>
     </div>
   </div>
 </section>
@@ -29,7 +29,7 @@
 <section id="leistungen" class="section">
   <div class="section__header">
     <p class="eyebrow">{{ .Params.servicesEyebrow | default "Leistungen" }}</p>
-    <h2>{{ .Params.servicesHeading | default "Leistungen im Ueberblick" }}</h2>
+    <h2>{{ .Params.servicesHeading | default "Leistungen im Überblick" }}</h2>
   </div>
   <div class="service-list">
     {{ range .Params.services }}
@@ -51,7 +51,7 @@
 <section class="band">
   <div>
     <p class="eyebrow">{{ .Params.trustEyebrow | default "Vertrauen" }}</p>
-    <h2>{{ .Params.trustHeading | default "Klar, persoenlich und verlaesslich" }}</h2>
+    <h2>{{ .Params.trustHeading | default "Klar, persönlich und verlässlich" }}</h2>
   </div>
   <ul class="checklist">
     {{ range .Params.trust }}
@@ -71,7 +71,7 @@
 <section id="ablauf" class="section">
   <div class="section__header">
     <p class="eyebrow">{{ .Params.processEyebrow | default "Ablauf" }}</p>
-    <h2>{{ .Params.processHeading | default "So laeuft die Zusammenarbeit ab" }}</h2>
+    <h2>{{ .Params.processHeading | default "So läuft die Zusammenarbeit ab" }}</h2>
   </div>
   <div class="steps">
     {{ range $index, $item := .Params.process }}

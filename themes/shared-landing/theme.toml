@@ -1,6 +1,6 @@
 name = "Shared Landing"
 license = "MIT"
-description = "Gemeinsames Hugo-Theme fuer lokale Landingpages"
+description = "Gemeinsames Hugo-Theme für lokale Landingpages"
 min_version = "0.159.0"
 
 [author]

@@ -8,8 +8,8 @@
   <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Params.businessName }}{{ end }}">
   <meta property="og:description" content="{{ .Site.Params.seoDescription }}">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="{{ .Site.Params.ogImage }}">
-  <link rel="stylesheet" href="/css/main.css?v={{ now.Unix }}">
+  <meta property="og:image" content="{{ .Site.Params.ogImage | strings.TrimPrefix "/" | absURL }}">
+  <link rel="stylesheet" href="{{ "css/main.css" | relURL }}?v={{ now.Unix }}">
   <style>
     :root {
       --color-primary: {{ .Site.Params.primaryColor }};
@@ -19,19 +19,19 @@
     }
   </style>
 </head>
-<body>
+<body{{ with .Site.Params.siteVariant }} class="site--{{ . }}"{{ end }}>
   <header class="site-header">
-    <a class="brand" href="/" aria-label="{{ .Site.Params.businessName }}">
+    <a class="brand" href="{{ .Site.Home.RelPermalink }}" aria-label="{{ .Site.Params.businessName }}">
       {{ with .Site.Params.logoImage }}
-        <img class="brand__logo" src="{{ . }}" alt="{{ $.Site.Params.logoAlt | default $.Site.Params.businessName }}">
+        <img class="brand__logo" src="{{ . | strings.TrimPrefix "/" | relURL }}" alt="{{ $.Site.Params.logoAlt | default $.Site.Params.businessName }}">
       {{ else }}
         <span>{{ .Site.Params.businessName }}</span>
       {{ end }}
     </a>
     <nav class="nav" aria-label="Hauptnavigation">
-      <a href="/#leistungen">Leistungen</a>
-      <a href="/#ablauf">Ablauf</a>
-      <a href="/#kontakt">Kontakt</a>
+      <a href="{{ .Site.Home.RelPermalink }}#leistungen">Leistungen</a>
+      <a href="{{ .Site.Home.RelPermalink }}#ablauf">Ablauf</a>
+      <a href="{{ .Site.Home.RelPermalink }}#kontakt">Kontakt</a>
       {{ with .Site.Params.instagramUrl }}
         <a class="nav__social" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -49,8 +49,8 @@
   <footer class="site-footer">
     <p>&copy; {{ now.Year }} {{ .Site.Params.businessName }}</p>
     <nav aria-label="Rechtliches">
-      <a href="/impressum/">Impressum</a>
-      <a href="/datenschutz/">Datenschutz</a>
+      <a href="{{ "impressum/" | relURL }}">Impressum</a>
+      <a href="{{ "datenschutz/" | relURL }}">Datenschutz</a>
     </nav>
   </footer>
 </body>
