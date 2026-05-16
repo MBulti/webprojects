@@ -8,14 +8,16 @@
   <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Params.businessName }}{{ end }}">
   <meta property="og:description" content="{{ .Site.Params.seoDescription }}">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="{{ .Site.Params.ogImage | strings.TrimPrefix "/" | absURL }}">
+  {{ with .Site.Params.ogImage }}
+    <meta property="og:image" content="{{ . | strings.TrimPrefix "/" | absURL }}">
+  {{ end }}
   <link rel="stylesheet" href="{{ "css/main.css" | relURL }}?v={{ now.Unix }}">
   <style>
     :root {
-      --color-primary: {{ .Site.Params.primaryColor }};
-      --color-accent: {{ .Site.Params.accentColor }};
-      --color-dark: {{ .Site.Params.darkColor }};
-      --color-light: {{ .Site.Params.lightColor }};
+      --color-primary: {{ .Site.Params.primaryColor | default "#2f4f4f" }};
+      --color-accent: {{ .Site.Params.accentColor | default "#d9a35f" }};
+      --color-dark: {{ .Site.Params.darkColor | default "#252525" }};
+      --color-light: {{ .Site.Params.lightColor | default "#f7f4ef" }};
     }
   </style>
 </head>
@@ -29,11 +31,15 @@
       {{ end }}
     </a>
     <nav class="nav" aria-label="Hauptnavigation">
-      <a href="{{ .Site.Home.RelPermalink }}#leistungen">Leistungen</a>
-      {{ if ne .Site.Home.Params.showProcess false }}
+      {{ with .Site.Home.Params.services }}
+        <a href="{{ $.Site.Home.RelPermalink }}#leistungen">Leistungen</a>
+      {{ end }}
+      {{ if and (ne .Site.Home.Params.showProcess false) .Site.Home.Params.process }}
         <a href="{{ .Site.Home.RelPermalink }}#ablauf">Ablauf</a>
       {{ end }}
-      <a href="{{ .Site.Home.RelPermalink }}#kontakt">Kontakt</a>
+      {{ with .Site.Home.Params.contact }}
+        <a href="{{ $.Site.Home.RelPermalink }}#kontakt">Kontakt</a>
+      {{ end }}
       {{ with .Site.Params.instagramUrl }}
         <a class="nav__social" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <svg viewBox="0 0 24 24" aria-hidden="true">

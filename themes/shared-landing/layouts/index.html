@@ -5,20 +5,32 @@
       <p class="eyebrow">{{ .Params.hero.eyebrow }}</p>
       <h1>{{ .Params.hero.title }}</h1>
       <p>{{ .Params.hero.text }}</p>
-      <div class="actions">
-        <a class="button button--primary" href="#kontakt">{{ .Params.hero.primaryCta }}</a>
-        <a class="button button--secondary" href="#leistungen">{{ .Params.hero.secondaryCta }}</a>
-      </div>
-      <dl class="hero__facts">
-        <div>
-          <dt>{{ .Params.hero.regionLabel | default "Region" }}</dt>
-          <dd>{{ .Site.Params.location }}</dd>
+      {{ if or .Params.hero.primaryCta .Params.hero.secondaryCta }}
+        <div class="actions">
+          {{ with .Params.hero.primaryCta }}
+            <a class="button button--primary" href="#kontakt">{{ . }}</a>
+          {{ end }}
+          {{ if and .Params.hero.secondaryCta .Params.services }}
+            <a class="button button--secondary" href="#leistungen">{{ .Params.hero.secondaryCta }}</a>
+          {{ end }}
         </div>
-        <div>
-          <dt>{{ .Params.hero.contactLabel | default "Kontakt" }}</dt>
-          <dd>{{ .Site.Params.phone }}</dd>
-        </div>
-      </dl>
+      {{ end }}
+      {{ if or .Site.Params.location .Site.Params.phone }}
+        <dl class="hero__facts">
+          {{ with .Site.Params.location }}
+            <div>
+              <dt>{{ $.Params.hero.regionLabel | default "Region" }}</dt>
+              <dd>{{ . }}</dd>
+            </div>
+          {{ end }}
+          {{ with .Site.Params.phone }}
+            <div>
+              <dt>{{ $.Params.hero.contactLabel | default "Kontakt" }}</dt>
+              <dd>{{ . }}</dd>
+            </div>
+          {{ end }}
+        </dl>
+      {{ end }}
     </div>
     <div class="hero__media">
       <div class="hero__image" style="--hero-image: url('{{ .Site.Params.heroImage | strings.TrimPrefix "/" | relURL }}')" role="img" aria-label="{{ .Site.Params.profession }}"></div>
@@ -29,42 +41,44 @@
   </div>
 </section>
 
-<section id="leistungen" class="section">
-  <div class="section__header">
-    <p class="eyebrow">{{ .Params.servicesEyebrow | default "Leistungen" }}</p>
-    <h2>{{ .Params.servicesHeading | default "Leistungen im Überblick" }}</h2>
-  </div>
-  <div class="service-list">
-    {{ range .Params.services }}
-      <article class="service-item">
-        <div class="service-item__main">
-          {{ with .iconImage }}
-            <span class="service-item__icon service-item__icon--image" aria-hidden="true">
-              <img src="{{ . | strings.TrimPrefix "/" | relURL }}" alt="">
-            </span>
-          {{ else }}
-            {{ with .icon }}
-              <span class="service-item__icon" aria-hidden="true">{{ . }}</span>
+{{ with .Params.services }}
+  <section id="leistungen" class="section">
+    <div class="section__header">
+      <p class="eyebrow">{{ $.Params.servicesEyebrow | default "Leistungen" }}</p>
+      <h2>{{ $.Params.servicesHeading | default "Leistungen im Überblick" }}</h2>
+    </div>
+    <div class="service-list">
+      {{ range . }}
+        <article class="service-item">
+          <div class="service-item__main{{ if or .iconImage .icon }} service-item__main--with-icon{{ end }}">
+            {{ with .iconImage }}
+              <span class="service-item__icon service-item__icon--image" aria-hidden="true">
+                <img src="{{ . | strings.TrimPrefix "/" | relURL }}" alt="">
+              </span>
+            {{ else }}
+              {{ with .icon }}
+                <span class="service-item__icon" aria-hidden="true">{{ . }}</span>
+              {{ end }}
             {{ end }}
-          {{ end }}
-          <div class="service-item__copy">
-            <h3>{{ .title }}</h3>
-            <p>{{ .text }}</p>
+            <div class="service-item__copy">
+              <h3>{{ .title }}</h3>
+              <p>{{ .text }}</p>
+            </div>
           </div>
-        </div>
-        {{ if ne $.Params.showServiceExamples false }}
-          <ul>
-            {{ range .examples }}
-              <li>{{ . }}</li>
-            {{ end }}
-          </ul>
-        {{ end }}
-      </article>
-    {{ end }}
-  </div>
-</section>
+          {{ if and (ne $.Params.showServiceExamples false) .examples }}
+            <ul>
+              {{ range .examples }}
+                <li>{{ . }}</li>
+              {{ end }}
+            </ul>
+          {{ end }}
+        </article>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}
 
-{{ if ne .Params.showTrust false }}
+{{ if and (ne .Params.showTrust false) .Params.trust }}
   <section class="band">
     <div>
       <p class="eyebrow">{{ .Params.trustEyebrow | default "Vertrauen" }}</p>
@@ -78,20 +92,22 @@
   </section>
 {{ end }}
 
-<section class="section section--split{{ with .Params.about.image }} section--about-media{{ end }}">
-  <div class="about-heading">
-    <p class="eyebrow">{{ .Params.aboutEyebrow | default "Profil" }}</p>
-    <h2>{{ .Params.about.title }}</h2>
-  </div>
-  {{ with .Params.about.image }}
-    <figure class="about-media">
-      <img src="{{ . | strings.TrimPrefix "/" | relURL }}" alt="{{ $.Params.about.imageAlt | default $.Params.about.title }}">
-    </figure>
-  {{ end }}
-  <div class="about-body">
-    <p class="large-text">{{ .Params.about.text }}</p>
-  </div>
-</section>
+{{ with .Params.about }}
+  <section class="section section--split{{ with .image }} section--about-media{{ end }}">
+    <div class="about-heading">
+      <p class="eyebrow">{{ $.Params.aboutEyebrow | default "Profil" }}</p>
+      <h2>{{ .title }}</h2>
+    </div>
+    {{ with .image }}
+      <figure class="about-media">
+        <img src="{{ . | strings.TrimPrefix "/" | relURL }}" alt="{{ $.Params.about.imageAlt | default $.Params.about.title }}">
+      </figure>
+    {{ end }}
+    <div class="about-body">
+      <p class="large-text">{{ .text }}</p>
+    </div>
+  </section>
+{{ end }}
 
 {{ with .Params.experience }}
   <section class="section">
@@ -114,7 +130,7 @@
   </section>
 {{ end }}
 
-{{ if ne .Params.showProcess false }}
+{{ if and (ne .Params.showProcess false) .Params.process }}
   <section id="ablauf" class="section">
     <div class="section__header">
       <p class="eyebrow">{{ .Params.processEyebrow | default "Ablauf" }}</p>
@@ -132,7 +148,7 @@
   </section>
 {{ end }}
 
-{{ if ne .Params.showArea false }}
+{{ if and (ne .Params.showArea false) .Params.area }}
   <section class="section section--split">
     <div>
       <p class="eyebrow">{{ .Params.areaEyebrow | default "Region" }}</p>
@@ -142,18 +158,24 @@
   </section>
 {{ end }}
 
-<section id="kontakt" class="contact">
-  <div>
-    <p class="eyebrow">{{ .Params.contactEyebrow | default "Kontakt" }}</p>
-    <h2>{{ .Params.contact.title }}</h2>
-    <p>{{ .Params.contact.text }}</p>
-  </div>
-  <div class="contact__actions">
-    <a class="button button--primary" href="tel:{{ .Site.Params.phoneHref }}">{{ .Site.Params.phone }}</a>
-    <a class="button button--secondary" href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
-    {{ with .Site.Params.whatsappHref }}
-      <a class="button button--secondary" href="{{ . }}">WhatsApp</a>
-    {{ end }}
-  </div>
-</section>
+{{ with .Params.contact }}
+  <section id="kontakt" class="contact">
+    <div>
+      <p class="eyebrow">{{ $.Params.contactEyebrow | default "Kontakt" }}</p>
+      <h2>{{ .title }}</h2>
+      <p>{{ .text }}</p>
+    </div>
+    <div class="contact__actions">
+      {{ with $.Site.Params.phoneHref }}
+        <a class="button button--primary" href="tel:{{ . }}">{{ $.Site.Params.phone }}</a>
+      {{ end }}
+      {{ with $.Site.Params.email }}
+        <a class="button button--secondary" href="mailto:{{ . }}">{{ . }}</a>
+      {{ end }}
+      {{ with $.Site.Params.whatsappHref }}
+        <a class="button button--secondary" href="{{ . }}">WhatsApp</a>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}
 {{ end }}
